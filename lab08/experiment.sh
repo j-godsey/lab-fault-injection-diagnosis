@@ -13,12 +13,12 @@ cleanup_started=false
 inject_latency() {
   # TODO: add the pricing_latency downstream latency toxic using
   # TOXIPROXY_PROXY and TOXIPROXY_LATENCY_MS.
-  :
+  toxiproxy-cli --host "$TOXIPROXY_URL" toxic add -n pricing_latency -t latency -d -a latency="$TOXIPROXY_LATENCY_MS" "$TOXIPROXY_PROXY"
 }
 
 remove_latency() {
   # TODO: remove the pricing_latency toxic here.
-  :
+  toxiproxy-cli --host "$TOXIPROXY_URL" toxic remove -n pricing_latency "$TOXIPROXY_PROXY"
 }
 
 cleanup() {
